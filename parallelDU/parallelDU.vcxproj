@@ -146,11 +146,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GaussSeidel.cpp" />
+    <ClCompile Include="Jacoby.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MethodResolver.cpp" />
+    <ClCompile Include="Relaxation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GaussSeidel.h" />
+    <ClInclude Include="Jacoby.h" />
     <ClInclude Include="MethodResolver.h" />
+    <ClInclude Include="Relaxation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

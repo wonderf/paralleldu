@@ -21,9 +21,27 @@
     <ClCompile Include="MethodResolver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Relaxation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Jacoby.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussSeidel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MethodResolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Relaxation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Jacoby.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussSeidel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
