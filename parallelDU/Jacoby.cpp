@@ -43,7 +43,6 @@ void Jacoby::ApplyMethod()
 				u_prev[i][j] = u[i][j];
 			}
 		}
-		//	printf("Iteration: %d, max error: %lf\n", it_count, max_error);
 		//todo c++ write to file
 		fprintf(err_f, "Iteration: %d, max error: %lf\n", it_count, max_error);
 		it_count++;
@@ -54,23 +53,6 @@ void Jacoby::ApplyMethod()
 	//elapsed = ((double)(end - start)) / CLOCKS_PER_SEC;
 	elapsed = end - start;
 
-	printf("PROCESS FINISHED\n");
-	//fprintf(err_f, "PROCESS FINISHED\n");
-	printf("ELAPSED: %lf\n", elapsed);
-	printf("ITERATION COUNT: %d\n", it_count);
-	fprintf(err_f, "ELAPSED: %lf\n", elapsed);
-
-	fclose(err_f);
-
-	FILE *output = fopen("result_Relaxation.dat", "w");
-	if (f == NULL)
-		printf("FAILED TO CREATE FILE result.dat");
-
-	for (int i = 0; i < N + 1; i++) {
-		for (int j = 0; j < N + 1; j++) {
-			fprintf(output, "%lf %lf %lf\n", x[i], y[j], u[i][j]);
-		}
-	}
-
-	fclose(output);
+	PrintStat(elapsed, it_count);
+	WriteStatToFile(x, y, u);
 }
