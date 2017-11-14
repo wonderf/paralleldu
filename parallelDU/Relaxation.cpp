@@ -22,9 +22,11 @@ void Relaxation::ApplyMethod()
 
 	//start = clock();
 	start = omp_get_wtime();
+	/*
 	FILE *err_f = fopen("err.dat", "w");
 	if (f == NULL)
 		printf("FAILED TO CREATE FILE err.dat");
+		*/
 	do {
 		max_error = 0;
 		//	#pragma omp parallel for num_threads(16)
@@ -43,7 +45,7 @@ void Relaxation::ApplyMethod()
 			}
 		}
 		//todo c++ write to file
-		fprintf(err_f, "Iteration: %d, max error: %lf\n", it_count, max_error);
+		//fprintf(err_f, "Iteration: %d, max error: %lf\n", it_count, max_error);
 		it_count++;
 	} while (max_error > eps);
 
@@ -53,5 +55,5 @@ void Relaxation::ApplyMethod()
 	elapsed = end - start;
 
 	PrintStat(elapsed, it_count);
-	WriteStatToFile(x, y, u);
+	WriteStatToFile(x, y, u, "relax.ans");
 }

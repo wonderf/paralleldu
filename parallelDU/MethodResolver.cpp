@@ -5,10 +5,10 @@
 MethodResolver::MethodResolver()
 {
 	
-	double **u = new double* [N + 1];
-	double **u_prev = new double*[N + 1];
-	double *x = new double[N + 1];
-	double *y = new double[N + 1];
+	u = new double*[N + 1];
+	u_prev = new double*[N + 1];
+	x = new double[N + 1];
+	y = new double[N + 1];
 	for (int i = 0; i < N + 1; i++) {
 
 		u[i] = new double[N + 1];
@@ -23,18 +23,22 @@ MethodResolver::MethodResolver()
 			y[i] = y[i - 1] + h;
 		}
 	}
+	
+
 
 }
 
 
 MethodResolver::~MethodResolver()
 {
+	
 	for (int count = 0; count < N+1; count++) {
 		delete[]u[count];
 		delete[]u_prev[count];
 	}
 	delete[] x;
 	delete[] y;
+	
 }
 
 void MethodResolver::PrepareBorderConditions()
@@ -62,9 +66,9 @@ void MethodResolver::PrintStat(double elapsed, int iteration)
 	//fprintf(err_f, "ELAPSED: %lf\n", elapsed);
 }
 
-void MethodResolver::WriteStatToFile(double * x, double * y, double ** u)
+void MethodResolver::WriteStatToFile(double * x, double * y, double ** u,char *name)
 {
-	std::ofstream f("answer.dat");
+	std::ofstream f(name);
 	if (!f.is_open())
 		std::cout << "FAILED TO CREATE FILE answer.dat" << std::endl;
 
