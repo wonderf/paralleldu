@@ -23,9 +23,9 @@ protected:
 	double f(const double &x,const double &y);
 	
 	const double eps=1E-3;
-	const int N = 64;
+	const int N = 512;
 	const double h = 1.0 / N;
 	
-	double w = 2;
+	double w = 1;
 };
 

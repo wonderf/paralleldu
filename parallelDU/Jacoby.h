@@ -3,6 +3,7 @@
 #include <iostream>
 #include <omp.h>
 #include <ctime>
+
 #include "MethodResolver.h"
 class Jacoby :
 	public MethodResolver

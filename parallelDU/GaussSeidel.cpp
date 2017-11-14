@@ -44,14 +44,15 @@ void GaussSeidel::ApplyMethod()
 
 			}
 		}
-		u_prev = u;
+		for (int i = 0; i < N + 1; i++) {
+			for (int j = 0; j < N + 1; j++) {
+				u_prev[i][j] = u[i][j];
+			}
+		}
 		//todo c++ write to file
 		//fprintf(err_f, "Iteration: %d, max error: %lf\n", it_count, max_error);
 		it_count++;
-		if (it_count % 1000 == 0)
-			std::cout << "gaus " << it_count << std::endl;
-		if (it_count % 10000 == 0)
-			std::cout << "gaus " << max_error << std::endl;
+		
 	} while (max_error > eps);
 	
 
