@@ -6,16 +6,14 @@ using namespace std;
 
 int main() {
 	
-	
-	Jacoby j;
-	j.ApplyMethod();
-
-	
-
+	/*
+	Relaxation r;
+	r.ApplyMethod();
+	*/
 	GaussSeidel gs;
 	gs.ApplyMethod();
 
-	Relaxation r;
-	r.ApplyMethod();
+	Jacoby j;
+	j.ApplyMethod();
 	
 }

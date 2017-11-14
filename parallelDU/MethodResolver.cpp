@@ -34,7 +34,6 @@ MethodResolver::~MethodResolver()
 	
 	for (int count = 0; count < N+1; count++) {
 		delete[]u[count];
-		delete[]u_prev[count];
 	}
 	delete[] x;
 	delete[] y;
