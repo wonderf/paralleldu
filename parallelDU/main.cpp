@@ -6,8 +6,11 @@ using namespace std;
 
 int main() {
 	
+	
 	Jacoby j;
 	j.ApplyMethod();
+
+	
 
 	GaussSeidel gs;
 	gs.ApplyMethod();

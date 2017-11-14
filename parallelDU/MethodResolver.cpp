@@ -24,7 +24,7 @@ MethodResolver::MethodResolver()
 		}
 	}
 	
-
+	PrepareBorderConditions();
 
 }
 
@@ -55,6 +55,7 @@ void MethodResolver::PrepareBorderConditions()
 			u_prev[i][j] = u[i][j];
 		}
 	}
+	
 }
 
 void MethodResolver::PrintStat(double elapsed, int iteration)
@@ -75,12 +76,12 @@ void MethodResolver::WriteStatToFile(double * x, double * y, double ** u,char *n
 	for (int i = 0; i < N + 1; i++) {
 		for (int j = 0; j < N + 1; j++) {
 			//fprintf(output, "%lf %lf %lf\n", x[i], y[j], u[i][j]);
-			f << x[i] << y[j] << u[i][j] << std::endl;
+			f << x[i]<<" " << y[j]<<" " << u[i][j] << std::endl;
 		}
 	}
 	f.close();
 }
 
-double MethodResolver::f(double x,double y) {
+double MethodResolver::f(const double &x,const double &y) {
 	return 4 + 2 * x*x - 2 * x + 2 * y*y - 2 * y;
 }

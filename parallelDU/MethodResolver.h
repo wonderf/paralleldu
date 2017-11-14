@@ -20,10 +20,10 @@ protected:
 	void WriteStatToFile(double *x,double *y,double **u,char *name);
 
 
-	double f(double x, double y);
+	double f(const double &x,const double &y);
 	
 	const double eps=1E-3;
-	const int N = 1024;
+	const int N = 64;
 	const double h = 1.0 / N;
 	
 	double w = 2;
