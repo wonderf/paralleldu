@@ -26,6 +26,6 @@ protected:
 	const int N = 512;
 	const double h = 1.0 / N;
 	
-	double w = 1;
+	double w = 1.99;
 };
 
