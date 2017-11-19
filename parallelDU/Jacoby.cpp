@@ -11,6 +11,13 @@ Jacoby::~Jacoby()
 {
 }
 
+void Jacoby::SetZero(double **u) {
+	for (int i = 0; i < N + 1; i++) {
+		for (int j = 0; j < N + 1; j++)
+			u[i][j] = 0;
+	}
+}
+
 void Jacoby::ApplyMethod()
 {
 	double max_error;
@@ -21,7 +28,7 @@ void Jacoby::ApplyMethod()
 	
 	//start = clock();
 	start = clock();
-	
+	SetZero(u);
 	double** ut = new double*[N + 1];
 	for (int i = 0; i < N + 1; i++)
 		ut[i] = new double[N + 1];
@@ -37,11 +44,17 @@ void Jacoby::ApplyMethod()
 			for (int j = 1; j < N; j++) {
 				
 				
-				u[i][j] = 0.25 * (u[i-1][j] + u[i + 1][j] + u[i][j - 1] + u[i][j + 1] - h * h * f(x[i], y[j]));
+				u[i][j] = 0.25 * (u_prev[i-1][j] + u_prev[i + 1][j] + u_prev[i][j - 1] + u_prev[i][j + 1] - h * h * f(x[i], y[j]));
+				
 				error = fabs(u[i][j] - ut[i][j]);
 				if (error > max_error)
 					max_error = error;
 				
+			}
+		}
+		for (int i = 1; i < N; i++) {
+			for (int j = 1; j < N; j++) {
+				u_prev[i][j] = u[i][j];
 			}
 		}
 		/*

@@ -60,7 +60,7 @@ void MethodResolver::PrepareBorderConditions()
 void MethodResolver::PrintStat(double elapsed, int iteration)
 {
 	std::cout << "Process finished" << std::endl;
-	std::cout << "Elapsed: " << elapsed << std::endl;
+	std::cout << "Elapsed: " << elapsed / CLOCKS_PER_SEC << std::endl;
 	std::cout << "Iteration count: " << iteration << std::endl;
 	
 	//fprintf(err_f, "ELAPSED: %lf\n", elapsed);

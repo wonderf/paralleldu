@@ -11,6 +11,7 @@ class Jacoby :
 public:
 	Jacoby();
 	~Jacoby();
+	void SetZero(double ** u);
 	virtual void ApplyMethod();
 };
 
