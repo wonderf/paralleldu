@@ -76,7 +76,7 @@ void Relaxation::ApplyMethod()
 	} while (max_error > eps);
 	
 
-	end = clock();
+	end = omp_get_wtime();
 	//elapsed = ((double)(end - start)) / CLOCKS_PER_SEC;
 	elapsed = end - start;
 	std::cout << it_count << std::endl;

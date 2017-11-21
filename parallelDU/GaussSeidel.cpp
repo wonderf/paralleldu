@@ -20,8 +20,8 @@ void GaussSeidel::ApplyMethod()
 	std::cout << it_count << std::endl;
 	double start, end, elapsed;
 
-	start = clock();
-	//start = omp_get_wtime();
+	//start = clock();
+	start = omp_get_wtime();
 	double** ut = new double*[N + 1];
 	for (int i = 0; i < N + 1; i++)
 		ut[i] = new double[N + 1];
@@ -76,7 +76,7 @@ void GaussSeidel::ApplyMethod()
 		
 	} while (max_error > eps);
 	
-	end = clock();
+	end = omp_get_wtime();
 	//elapsed = ((double)(end - start)) / CLOCKS_PER_SEC;
 	elapsed = end - start;
 
