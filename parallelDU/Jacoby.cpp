@@ -27,7 +27,7 @@ void Jacoby::ApplyMethod()
 	double start, end, elapsed;
 	
 	//start = clock();
-	start = clock();
+	start = omp_get_wtime();
 	SetZero(u);
 	double** ut = new double*[N + 1];
 	for (int i = 0; i < N + 1; i++)
@@ -39,7 +39,7 @@ void Jacoby::ApplyMethod()
 	}
 	do {
 		max_error = 0;
-		//	#pragma omp parallel for num_threads(16)
+		#pragma omp parallel for num_threads(16)
 		for (int i = 1; i < N; i++) {
 			for (int j = 1; j < N; j++) {
 				
@@ -66,7 +66,7 @@ void Jacoby::ApplyMethod()
 	} while (max_error > eps);
 	
 
-	end = clock();
+	end = omp_get_wtime();
 	//elapsed = ((double)(end - start)) / CLOCKS_PER_SEC;
 	elapsed = end - start;
 	
