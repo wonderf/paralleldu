@@ -52,18 +52,13 @@ void Jacoby::ApplyMethod()
 				
 			}
 		}
+		
 		for (int i = 1; i < N; i++) {
 			for (int j = 1; j < N; j++) {
 				u_prev[i][j] = u[i][j];
 			}
 		}
-		/*
-		for (int i = 1; i < N; i++) {
-			for (int j = 1; j < N; j++) {
-				u_prev[i][j] = u[i][j];
-			}
-		}
-		*/
+		
 		//todo c++ write to file
 		//fprintf(err_f, "Iteration: %d, max error: %lf\n", it_count, max_error);
 		it_count++;

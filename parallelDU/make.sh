@@ -1,0 +1,1 @@
+g++ main.cpp MethodResolver.cpp Jacoby.cpp GaussSeidel.cpp Relaxation.cpp -o resolver
